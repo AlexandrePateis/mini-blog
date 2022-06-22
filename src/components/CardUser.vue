@@ -149,7 +149,8 @@ export default {
       this.$router.push({ name: "edit", params: { id: value } });
     },
     FazLogin(id){
-      console.log(id)
+      //Action
+      this.$store.dispatch('saveNameUser', id)
     },
   
   },

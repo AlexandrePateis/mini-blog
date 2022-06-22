@@ -25,7 +25,7 @@
           </ul>
         </div>
       </div>
-      <div class="nameuse">{{$store.state}}</div>
+      <div class="nameuse">{{$store.state.user.name}}</div>
     </nav>
   </div>
 </template>
@@ -59,6 +59,7 @@ export default {
   margin-right: 0 !important;
 }
 .nameuse {
+  width: 20em;
   float: right;
   margin-right: 13em !important;
   color: white !important;
