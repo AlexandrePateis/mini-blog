@@ -15,7 +15,7 @@
   <tbody>
     <tr v-for="item in info" :key="item.id">
       <th scope="row">{{item.id}}</th>
-      <td><NameUser :userId="item.user_id" /></td>
+      <td class="teste"><NameUser :userId="item.user_id" /></td>
       <td class="title-post">{{item.title}}</td>
       <td><i @click="ShowPost(item.id)" class="fa-solid fa-eye"></i></td>
     </tr>

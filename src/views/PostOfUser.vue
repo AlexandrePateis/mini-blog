@@ -2,7 +2,7 @@
     <h1 class="title">Posts of Users</h1>
     <div class="post-uniq" v-for="item in info" :key="item.id">
       <div class="post-user">
-        <NameUser class="teste" :userId="item.user_id" />
+        <h2 class="teste"><NameUser :userId="item.user_id" /></h2>
         <p class="name-user">{{ item.title }}</p>
         <p>
           {{ item.body }}
@@ -101,5 +101,9 @@ export default{
     
 </script>
 <style scoped>
-
+.teste{
+  font-size:1.5em;
+  color: red;
+  font-weight: bold;
+}
 </style>
