@@ -25,7 +25,16 @@
           </ul>
         </div>
       </div>
-      <div class="nameuse">{{$store.state.user.name}}</div>
+      <div class="nameuse">
+        <a class="space" @click="EditThisUser($store.state.user.id)">
+        {{ $store.state.user.name }}
+        </a>
+        <span>
+          <a v-if="$store.state.user.name" href="" @click="Logout()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </a>
+        </span>
+      </div>
     </nav>
   </div>
 </template>
@@ -34,18 +43,27 @@
 export default {
   name: "NavBar",
   components: {},
-    computed: {
-  },
+  computed: {},
   methods: {
-      
+    Logout() {
+      localStorage.clear();
     },
-  
+     EditThisUser(value) {
+      this.$router.push({ name: "edit", params: { id: value } });
+    },
+  },
 };
 </script>
 <style>
 * {
   font-family: sans-serif;
   text-decoration: none;
+}
+.space{
+  text-decoration: none !important;
+  color: white !important;
+  margin-right: 1em;
+  cursor: pointer;
 }
 .nav-link {
   font-size: 1.5em;

@@ -12,22 +12,19 @@ export default createStore({
       }
   },
   getters: {
+    userCurrent: (state) => state.user
   },
 
   mutations: {
     saveNameUser(state, payload){
-      state.user.id = payload.id
-      state.user.name = payload.name
-      state.user.email = payload.email
-      state.user.gender = payload.gender
-      state.user.status = payload.status
-      console.log(state.user)
+      state.user = payload
     }
   },
   actions: {
     saveNameUser(context, payload){
       context.commit('saveNameUser', payload)
-      console.log(payload.name)
+      localStorage.setItem('state_user', JSON.stringify(payload))
+      JSON.stringify(payload)
     }
   },
   modules: {

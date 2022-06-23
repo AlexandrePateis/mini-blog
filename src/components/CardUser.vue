@@ -32,6 +32,7 @@
               <button class="myButton" @click="FazLogin(item)">Log</button>
               <button class="myButton" @click="EditAction(item.id)">
                 Edit
+                
               </button>
               <!-- Button trigger modal -->
               <button
@@ -92,6 +93,7 @@
           </td>
         </tr>
       </tbody>
+     
     </table>
   </div>
 </template>
@@ -113,7 +115,7 @@ export default {
       loaded: null,
     };
   },
- 
+
   mounted() {
     this.loaded = true;
     axios
@@ -148,16 +150,14 @@ export default {
     EditAction(value) {
       this.$router.push({ name: "edit", params: { id: value } });
     },
-    FazLogin(id){
+    FazLogin(id) {
       //Action
-      this.$store.dispatch('saveNameUser', id)
+      this.$store.dispatch("saveNameUser", id);
     },
-  
   },
 
   components: {
     TelaLoading,
-    
   },
 };
 </script>
@@ -182,7 +182,7 @@ export default {
   margin: 0 auto;
   padding: 2em;
 }
-.btn-outline-primary{
+.btn-outline-primary {
   padding: 1em;
 }
 .username {
@@ -219,7 +219,7 @@ p {
 }
 .table {
   margin-top: 2em;
-  width: 65%;
+  width: 68%;
   margin: 0 auto;
 }
 .colormyButton {

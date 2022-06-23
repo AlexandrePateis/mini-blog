@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import UserPosts from '../components/UserPosts.vue'
+import UserPosts from '../components/TablePost.vue'
   export default{
     name: "PostUser",
     components:{

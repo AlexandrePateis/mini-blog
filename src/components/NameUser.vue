@@ -32,8 +32,6 @@ export default {
 
 <style>
 .nameUser{
-    font-size: 1.5em;
-    font-weight: bold;
-    color: red;
+  
 }
 </style>
