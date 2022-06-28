@@ -2,25 +2,25 @@
   <TelaLoading :isLoading="loaded" />
   <div class="" v-if="!loaded">
     <h1 class="title">Posts of Users</h1>
-    <div class="post-uniq" >
-     <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Name user</th>
-      <th scope="col">Title Post</th>
-      <th scope="col">View</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="item in info" :key="item.id">
-      <th scope="row">{{item.id}}</th>
-      <td class="teste"><NameUser :userId="item.user_id" /></td>
-      <td class="title-post">{{item.title}}</td>
-      <td><i @click="ShowPost(item.id)" class="fa-solid fa-eye"></i></td>
-    </tr>
-  </tbody>
-</table>
+    <div class="post-uniq">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name user</th>
+            <th scope="col">Title Post</th>
+            <th scope="col">View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in info" :key="item.id">
+            <th scope="row">{{ item.id }}</th>
+            <td class="teste"><NameUser :userId="item.user_id" /></td>
+            <td class="title-post">{{ item.title }}</td>
+            <td><i @click="ShowPost(item.id)" class="fa-solid fa-eye"></i></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -84,9 +84,9 @@ export default {
           this.status = response.status;
         });
     },
-    ShowPost(value){
+    ShowPost(value) {
       this.$router.push({ name: "postuser", params: { id: value } });
-    }
+    },
   },
 };
 </script>
@@ -105,7 +105,7 @@ export default {
   font-size: 1em;
   width: 10em;
 }
-.title-post{
+.title-post {
   font-style: italic;
 }
 .post-uniq {
