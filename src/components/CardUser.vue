@@ -4,8 +4,11 @@
     <h1 class="title">User Register</h1>
     <div class="ac">
       <router-link to="/cadastro" class="btn btn-primary"
-        >Create new user</router-link
-      >
+        >Create new user
+      </router-link>
+      <button :disabled="!$store.state.user.id" class="btn btn-primary" @click="MakePost($store.state.user.id)">
+        Make a post
+      </button>
     </div>
     <table class="table">
       <thead class="table-light">
@@ -32,7 +35,6 @@
               <button class="myButton" @click="FazLogin(item)">Log</button>
               <button class="myButton" @click="EditAction(item.id)">
                 Edit
-                
               </button>
               <!-- Button trigger modal -->
               <button
@@ -93,7 +95,6 @@
           </td>
         </tr>
       </tbody>
-     
     </table>
   </div>
 </template>
@@ -149,6 +150,9 @@ export default {
     },
     EditAction(value) {
       this.$router.push({ name: "edit", params: { id: value } });
+    },
+    MakePost(value) {
+      this.$router.push({ name: "makeapost", params: { id: value } });
     },
     FazLogin(id) {
       //Action

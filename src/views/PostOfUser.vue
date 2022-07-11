@@ -8,7 +8,13 @@
         {{ item.body }}
       </p>
     </div>
-    <CommentsUser :idUser="item.id" />
+    <div class="coments" v-for="item in comentUser" :key="item.id">
+      <p class="nome-comment-name">{{item.name}}</p>
+      <p class="comment-make">
+        {{item.body}}
+      </p>
+      
+    </div>
     <div class="input-group mb-3">
       <input
         :disabled="!$store.state.user.name"
@@ -39,7 +45,6 @@
 </template>
 <script>
 import axios from "axios";
-import CommentsUser from "../components/CommentsUser.vue";
 import NameUser from "../components/NameUser.vue";
 export default {
   name: "PostOfUser",
@@ -49,16 +54,16 @@ export default {
       info: null,
       comment: null,
       response: null,
-      comentario: <CommentsUser />
+      comentUser: null
     };
   },
 
   components: {
-    CommentsUser,
     NameUser,
   },
   mounted() {
     this.loaded = true;
+    //pega post
     axios
       .get(`https://gorest.co.in/public/v2/posts?id=${this.$route.params.id}`, {
         headers: {
@@ -70,6 +75,18 @@ export default {
         this.info = response.data;
         console.log(response);
       });
+
+      //pega comentario
+      axios
+        .get(`https://gorest.co.in/public/v2/posts/${this.$route.params.id}/comments`, {
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+            RetryAfter: 3600
+          },
+        })
+        .then((response) => {
+          this.comentUser = response.data;
+        });
   },
   methods: {
     MakeAComment(id_user_comment, id_post, name_user_comment, email) {
@@ -89,6 +106,18 @@ export default {
           }
         )
         .then((response) => {
+          //Renderiza em tempo real o comentario
+          axios
+        .get(`https://gorest.co.in/public/v2/posts/${this.$route.params.id}/comments`, {
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+            RetryAfter: 3600
+          },
+        })
+        .then((response) => {
+          this.comentUser = response.data;
+          this.comment = '' //limpa o input do comentario
+        });
           console.log(response);
         });
     },

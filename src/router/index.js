@@ -5,6 +5,7 @@ import CreateUser from '../views/CreateUser.vue'
 import EditUser from '../views/EditUser.vue'
 import CardUser from '../components/CardUser.vue'
 import PostOfUser from '../views/PostOfUser'
+import MakeAPost from '../views/MakeAPost'
 
 const routes = [
   {
@@ -37,6 +38,12 @@ const routes = [
     path: '/postuser/:id',
     name: 'postuser',
     component: PostOfUser,
+    props: {default: true, sidebar: false}
+  },
+  {
+    path: '/makeapost/:id',
+    name: 'makeapost',
+    component: MakeAPost,
     props: {default: true, sidebar: false}
   },
 ]
