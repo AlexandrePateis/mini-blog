@@ -44,7 +44,8 @@ export default {
   },
   methods:{
     SendPost(){
-        axios
+        if(this.$store.state.user.status == "active"){
+            axios
         .post("https://gorest.co.in/public/v2/posts", this.formDates, {
           headers: {
             Authorization: `Bearer ${this.token}`,
@@ -60,6 +61,12 @@ export default {
           setTimeout(() => (
           this.formDates.title=null, this.formDates.body=null), 2000)
         });
+        }
+        else{
+           this.msg = `Usuario não ativo, o post não foi feito.`;
+            setTimeout(() => (this.msg = null), 4000);
+        }
+      
     }
   },
   components:{

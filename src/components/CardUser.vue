@@ -6,7 +6,9 @@
       <router-link to="/cadastro" class="btn btn-primary"
         >Create new user
       </router-link>
-      <button :disabled="!$store.state.user.id" class="btn btn-primary" @click="MakePost($store.state.user.id)">
+      <button :disabled="!$store.state.user.id"
+       class="btn btn-primary" 
+       @click="MakePost($store.state.user.id)">
         Make a post
       </button>
     </div>
@@ -29,7 +31,7 @@
           <td v-if="item.gender == 'male'" class="userGender">Masculino</td>
           <td v-else class="userGender">Feminine</td>
           <td v-if="item.status == 'active'">Active</td>
-          <td v-else>Inative</td>
+          <td v-else>Inactive</td>
           <td>
             <div class="btn-options">
               <button class="myButton" @click="FazLogin(item)">Log</button>

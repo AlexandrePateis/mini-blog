@@ -27,6 +27,7 @@
       />
       <button
         class="btn btn-primary"
+        :disabled="$store.state.user.status == 'inactive'"
         type="button"
         id="button-addon2"
         @click="
@@ -97,6 +98,7 @@ export default {
         email: email,
         body: this.comment,
       };
+      
       axios.post(`https://gorest.co.in/public/v2/posts/${comment.post_id}/comments`,
           comment,
           {

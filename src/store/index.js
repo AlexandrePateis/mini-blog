@@ -8,7 +8,6 @@ export default createStore({
         email: null,
         gender:null,
         status:null
-
       }
   },
   getters: {
@@ -25,6 +24,7 @@ export default createStore({
       context.commit('saveNameUser', payload)
       localStorage.setItem('state_user', JSON.stringify(payload))
       JSON.stringify(payload)
+
     }
   },
   modules: {
